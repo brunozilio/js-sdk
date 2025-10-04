@@ -1,0 +1,47 @@
+{
+    "version": "0.26.2",
+    "name": "backbase",
+    "description": "BackBase JavaScript SDK",
+    "author": "Bruno Zilio",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/brunozilio/js-sdk.git"
+    },
+    "exports": {
+        ".": "./dist/backbase.es.mjs",
+        "./cjs": "./dist/backbase.cjs.js",
+        "./umd": "./dist/backbase.umd.js"
+    },
+    "main": "./dist/backbase.es.mjs",
+    "module": "./dist/backbase.es.mjs",
+    "react-native": "./dist/backbase.es.js",
+    "types": "./dist/backbase.es.d.mts",
+    "keywords": [
+        "backbase",
+        "backbase-js",
+        "js-sdk",
+        "javascript-sdk",
+        "backbase-sdk"
+    ],
+    "prettier": {
+        "tabWidth": 4,
+        "printWidth": 90,
+        "bracketSameLine": true
+    },
+    "scripts": {
+        "format": "npx prettier ./src ./tests --write",
+        "build": "rm -rf dist && rollup -c",
+        "dev": "rollup -c -w",
+        "test": "vitest",
+        "prepublishOnly": "npm run build"
+    },
+    "devDependencies": {
+        "@rollup/plugin-terser": "^0.4.3",
+        "prettier": "3.2.4",
+        "rollup": "^4.0.0",
+        "rollup-plugin-ts": "^3.0.0",
+        "typescript": "^5.1.6",
+        "vitest": "^2.0.0"
+    }
+}
