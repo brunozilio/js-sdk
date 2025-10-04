@@ -23,12 +23,12 @@ function basePlugins() {
 }
 
 export default [
-    // ES bundle (the BackBase client as default export + additional helper classes).
+    // ES bundle (the Hobsec client as default export + additional helper classes).
     {
         input: 'src/index.ts',
         output: [
             {
-                file:      'dist/backbase.es.mjs',
+                file:      'dist/hobsec.es.mjs',
                 format:    'es',
                 sourcemap: isProduction,
             },
@@ -45,7 +45,7 @@ export default [
         input: 'src/index.ts',
         output: [
             {
-                file:      'dist/backbase.es.js',
+                file:      'dist/hobsec.es.js',
                 format:    'es',
                 sourcemap: isProduction,
             },
@@ -54,13 +54,13 @@ export default [
         watch: { clearScreen: false },
     },
 
-    // UMD bundle (only the BackBase client as default export).
+    // UMD bundle (only the Hobsec client as default export).
     {
         input: 'src/Client.ts',
         output: [
             {
-                name:      'BackBase',
-                file:      'dist/backbase.umd.js',
+                name:      'Hobsec',
+                file:      'dist/hobsec.umd.js',
                 format:    'umd',
                 exports:   'default',
                 sourcemap: isProduction,
@@ -70,13 +70,13 @@ export default [
         watch: { clearScreen: false },
     },
 
-    // CommonJS bundle (only the BackBase client as default export).
+    // CommonJS bundle (only the Hobsec client as default export).
     {
         input: 'src/Client.ts',
         output: [
             {
-                name:      'BackBase',
-                file:      'dist/backbase.cjs.js',
+                name:      'Hobsec',
+                file:      'dist/hobsec.cjs.js',
                 format:    'cjs',
                 exports:   'default',
                 sourcemap: isProduction,
@@ -90,13 +90,13 @@ export default [
     // @deprecated - kept only for backwards compatibility and will be removed in v1.0.0
     // !!!
     //
-    // Browser-friendly iife bundle (only the BackBase client as default export).
+    // Browser-friendly iife bundle (only the Hobsec client as default export).
     {
         input: 'src/Client.ts',
         output: [
             {
-                name:      'BackBase',
-                file:      'dist/backbase.iife.js',
+                name:      'Hobsec',
+                file:      'dist/hobsec.iife.js',
                 format:    'iife',
                 sourcemap: isProduction,
             },

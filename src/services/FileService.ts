@@ -3,14 +3,14 @@ import { CommonOptions, FileOptions } from "@/tools/options";
 
 export class FileService extends BaseService {
     /**
-     * @deprecated Please replace with `pb.files.getURL()`.
+     * @deprecated Please replace with `hobsec.files.getURL()`.
      */
     getUrl(
         record: { [key: string]: any },
         filename: string,
         queryParams: FileOptions = {},
     ): string {
-        console.warn("Please replace pb.files.getUrl() with pb.files.getURL()");
+        console.warn("Please replace hobsec.files.getUrl() with hobsec.files.getURL()");
         return this.getURL(record, filename, queryParams);
     }
 

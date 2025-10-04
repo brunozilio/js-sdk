@@ -1,7 +1,7 @@
 {
     "version": "0.26.2",
-    "name": "brunozilio/backbase",
-    "description": "BackBase JavaScript SDK",
+    "name": "@brunozilio/hobsec",
+    "description": "Hobsec JavaScript SDK",
     "author": "Bruno Zilio",
     "license": "MIT",
     "repository": {
@@ -9,20 +9,20 @@
         "url": "git://github.com/brunozilio/js-sdk.git"
     },
     "exports": {
-        ".": "./dist/backbase.es.mjs",
-        "./cjs": "./dist/backbase.cjs.js",
-        "./umd": "./dist/backbase.umd.js"
+        ".": "./dist/hobsec.es.mjs",
+        "./cjs": "./dist/hobsec.cjs.js",
+        "./umd": "./dist/hobsec.umd.js"
     },
-    "main": "./dist/backbase.es.mjs",
-    "module": "./dist/backbase.es.mjs",
-    "react-native": "./dist/backbase.es.js",
-    "types": "./dist/backbase.es.d.mts",
+    "main": "./dist/hobsec.es.mjs",
+    "module": "./dist/hobsec.es.mjs",
+    "react-native": "./dist/hobsec.es.js",
+    "types": "./dist/hobsec.es.d.mts",
     "keywords": [
-        "backbase",
-        "backbase-js",
+        "hobsec",
+        "hobsec-js",
         "js-sdk",
         "javascript-sdk",
-        "backbase-sdk"
+        "hobsec-sdk"
     ],
     "prettier": {
         "tabWidth": 4,

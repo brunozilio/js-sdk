@@ -44,7 +44,7 @@ export class RealtimeService extends BaseService {
      * or because of network/server error (`activeSubscriptions.length > 0`).
      *
      * If you want to listen for the opposite, aka. when the client connection is established,
-     * subscribe to the `PB_CONNECT` event.
+     * subscribe to the `HOBSEC_CONNECT` event.
      */
     onDisconnect?: (activeSubscriptions: Array<string>) => void;
 
@@ -389,7 +389,7 @@ export class RealtimeService extends BaseService {
             );
         };
 
-        this.eventSource.addEventListener("PB_CONNECT", (e) => {
+        this.eventSource.addEventListener("HOBSEC_CONNECT", (e) => {
             const msgEvent = e as MessageEvent;
             this.clientId = msgEvent?.lastEventId;
 
@@ -417,8 +417,8 @@ export class RealtimeService extends BaseService {
                     clearTimeout(this.reconnectTimeoutId);
                     clearTimeout(this.connectTimeoutId);
 
-                    // propagate the PB_CONNECT event
-                    const connectSubs = this.getSubscriptionsByTopic("PB_CONNECT");
+                    // propagate the HOBSEC_CONNECT event
+                    const connectSubs = this.getSubscriptionsByTopic("HOBSEC_CONNECT");
                     for (let key in connectSubs) {
                         for (let listener of connectSubs[key]) {
                             listener(e);
@@ -498,7 +498,7 @@ export class RealtimeService extends BaseService {
             //
             // this is done to avoid unnecessary throwing errors in case
             // unsubscribe is called before the pending connect promises complete
-            // (see https://github.com/brunozilio/backbase/discussions/2897#discussioncomment-6423818)
+            // (see https://github.com/brunozilio/hobsec/discussions/2897#discussioncomment-6423818)
             for (let p of this.pendingConnects) {
                 p.resolve();
             }

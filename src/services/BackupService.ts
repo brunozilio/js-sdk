@@ -49,7 +49,7 @@ export class BackupService extends BaseService {
      * Example:
      *
      * ```js
-     * await pb.backups.upload({
+     * await hobsec.backups.upload({
      *     file: new Blob([...]),
      * });
      * ```
@@ -112,7 +112,7 @@ export class BackupService extends BaseService {
      */
     getDownloadUrl(token: string, key: string): string {
         console.warn(
-            "Please replace pb.backups.getDownloadUrl() with pb.backups.getDownloadURL()",
+            "Please replace hobsec.backups.getDownloadUrl() with hobsec.backups.getDownloadURL()",
         );
         return this.getDownloadURL(token, key);
     }
@@ -121,7 +121,7 @@ export class BackupService extends BaseService {
      * Builds a download url for a single existing backup using a
      * superuser file token and the backup file key.
      *
-     * The file token can be generated via `pb.files.getToken()`.
+     * The file token can be generated via `hobsec.files.getToken()`.
      */
     getDownloadURL(token: string, key: string): string {
         return this.client.buildURL(

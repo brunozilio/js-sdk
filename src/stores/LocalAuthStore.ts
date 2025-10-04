@@ -8,7 +8,7 @@ export class LocalAuthStore extends BaseAuthStore {
     private storageFallback: { [key: string]: any } = {};
     private storageKey: string;
 
-    constructor(storageKey = "backbase_auth") {
+    constructor(storageKey = "hobsec_auth") {
         super();
 
         this.storageKey = storageKey;

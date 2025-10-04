@@ -8,7 +8,7 @@ export type AuthModel = AuthRecord; // for backward compatibility
 
 export type OnStoreChangeFunc = (token: string, record: AuthRecord) => void;
 
-const defaultCookieKey = "pb_auth";
+const defaultCookieKey = "hobsec_auth";
 
 /**
  * Base AuthStore class that stores the auth state in runtime memory (aka. only for the duration of the store instane).
@@ -53,7 +53,7 @@ export class BaseAuthStore {
     /**
      * Loosely checks whether the currently loaded store state is for superuser.
      *
-     * Alternatively you can also compare directly `pb.authStore.record?.collectionName`.
+     * Alternatively you can also compare directly `hobsec.authStore.record?.collectionName`.
      */
     get isSuperuser(): boolean {
         let payload = getTokenPayload(this.token);
@@ -64,7 +64,7 @@ export class BaseAuthStore {
                 // fallback in case the record field is not populated and assuming
                 // that the collection crc32 checksum id wasn't manually changed
                 (!this.record?.collectionName &&
-                    payload.collectionId == "pbc_3142635823"))
+                    payload.collectionId == "hobsecc_3142635823"))
         );
     }
 
@@ -73,7 +73,7 @@ export class BaseAuthStore {
      */
     get isAdmin(): boolean {
         console.warn(
-            "Please replace pb.authStore.isAdmin with pb.authStore.isSuperuser OR simply check the value of pb.authStore.record?.collectionName",
+            "Please replace hobsec.authStore.isAdmin with hobsec.authStore.isSuperuser OR simply check the value of hobsec.authStore.record?.collectionName",
         );
         return this.isSuperuser;
     }
@@ -83,7 +83,7 @@ export class BaseAuthStore {
      */
     get isAuthRecord(): boolean {
         console.warn(
-            "Please replace pb.authStore.isAuthRecord with !pb.authStore.isSuperuser OR simply check the value of pb.authStore.record?.collectionName",
+            "Please replace hobsec.authStore.isAuthRecord with !hobsec.authStore.isSuperuser OR simply check the value of hobsec.authStore.record?.collectionName",
         );
         return getTokenPayload(this.token).type == "auth" && !this.isSuperuser;
     }
@@ -113,21 +113,21 @@ export class BaseAuthStore {
      *
      * NB! This function doesn't validate the token or its data.
      * Usually this isn't a concern if you are interacting only with the
-     * BackBase API because it has the proper server-side security checks in place,
+     * Hobsec API because it has the proper server-side security checks in place,
      * but if you are using the store `isValid` state for permission controls
      * in a node server (eg. SSR), then it is recommended to call `authRefresh()`
      * after loading the cookie to ensure an up-to-date token and model state.
      * For example:
      *
      * ```js
-     * pb.authStore.loadFromCookie("cookie string...");
+     * hobsec.authStore.loadFromCookie("cookie string...");
      *
      * try {
      *     // get an up-to-date auth store state by veryfing and refreshing the loaded auth model (if any)
-     *     pb.authStore.isValid && await pb.collection('users').authRefresh();
+     *     hobsec.authStore.isValid && await hobsec.collection('users').authRefresh();
      * } catch (_) {
      *     // clear the auth store on failed refresh
-     *     pb.authStore.clear();
+     *     hobsec.authStore.clear();
      * }
      * ```
      */

@@ -1,5 +1,5 @@
-import { describe, assert, test } from "vitest";
 import { getTokenPayload, isTokenExpired } from "@/tools/jwt";
+import { assert, describe, test } from "vitest";
 
 describe("jwt", function () {
     describe("getTokenPayload()", function () {
@@ -45,7 +45,7 @@ describe("jwt", function () {
                 // token with exp param in the future
                 [
                     false,
-                    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZXN0IjoxMjMsImV4cCI6MTkwODc4NDgwMH0.vVbRVx-Bs7pusxfU8TTTOEtNcUEYSzmJUboC68PB5iE",
+                    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZXN0IjoxMjMsImV4cCI6MTkwODc4NDgwMH0.vVbRVx-Bs7pusxfU8TTTOEtNcUEYSzmJUboC68HOBSEC5iE",
                 ],
             ];
             for (let i in testCases) {

@@ -27,11 +27,11 @@ export interface BeforeSendResult {
 }
 
 /**
- * BackBase JS Client.
+ * Hobsec JS Client.
  */
 export default class Client {
     /**
-     * The base BackBase backend url address (eg. 'http://127.0.0.1.8090').
+     * The base Hobsec backend url address (eg. 'http://127.0.0.1.8090').
      */
     baseURL: string;
 
@@ -61,9 +61,9 @@ export default class Client {
      *
      * Example:
      * ```js
-     * const pb = new BackBase("https://example.com")
+     * const hobsec = new Hobsec("https://example.com")
      *
-     * pb.beforeSend = function (url, options) {
+     * hobsec.beforeSend = function (url, options) {
      *     options.headers = Object.assign({}, options.headers, {
      *         'X-Custom-Header': 'example',
      *     })
@@ -87,9 +87,9 @@ export default class Client {
      *
      * Example:
      * ```js
-     * const pb = new BackBase("https://example.com")
+     * const hobsec = new Hobsec("https://example.com")
      *
-     * pb.afterSend = function (response, data, options) {
+     * hobsec.afterSend = function (response, data, options) {
      *     if (response.status != 200) {
      *         throw new ClientResponseError({
      *             url:      response.url,
@@ -188,7 +188,7 @@ export default class Client {
 
     /**
      * @deprecated
-     * With BackBase v0.23.0 admins are converted to a regular auth
+     * With Hobsec v0.23.0 admins are converted to a regular auth
      * collection named "_superusers", aka. you can use directly collection("_superusers").
      */
     get admins(): RecordService {
@@ -201,7 +201,7 @@ export default class Client {
      *
      * Example:
      * ```js
-     * const batch = pb.createBatch();
+     * const batch = hobsec.createBatch();
      *
      * batch.collection("example1").create({ ... })
      * batch.collection("example2").update("RECORD_ID", { ... })
@@ -270,14 +270,14 @@ export default class Client {
      * - `string` (_single quotes are autoescaped_)
      * - `number`
      * - `boolean`
-     * - `Date` object (_stringified into the BackBase datetime format_)
+     * - `Date` object (_stringified into the Hobsec datetime format_)
      * - `null`
      * - everything else is converted to a string using `JSON.stringify()`
      *
      * Example:
      *
      * ```js
-     * pb.collection("example").getFirstListItem(pb.filter(
+     * hobsec.collection("example").getFirstListItem(hobsec.filter(
      *    'title ~ {:title} && created >= {:created}',
      *    { title: "example", created: new Date()}
      * ))
@@ -314,22 +314,22 @@ export default class Client {
     }
 
     /**
-     * @deprecated Please use `pb.files.getURL()`.
+     * @deprecated Please use `hobsec.files.getURL()`.
      */
     getFileUrl(
         record: { [key: string]: any },
         filename: string,
         queryParams: FileOptions = {},
     ): string {
-        console.warn("Please replace pb.getFileUrl() with pb.files.getURL()");
+        console.warn("Please replace hobsec.getFileUrl() with hobsec.files.getURL()");
         return this.files.getURL(record, filename, queryParams);
     }
 
     /**
-     * @deprecated Please use `pb.buildURL()`.
+     * @deprecated Please use `hobsec.buildURL()`.
      */
     buildUrl(path: string): string {
-        console.warn("Please replace pb.buildUrl() with pb.buildURL()");
+        console.warn("Please replace hobsec.buildUrl() with hobsec.buildURL()");
         return this.buildURL(path);
     }
 
