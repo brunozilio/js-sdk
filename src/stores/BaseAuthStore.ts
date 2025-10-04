@@ -64,7 +64,7 @@ export class BaseAuthStore {
                 // fallback in case the record field is not populated and assuming
                 // that the collection crc32 checksum id wasn't manually changed
                 (!this.record?.collectionName &&
-                    payload.collectionId == "hobsecc_3142635823"))
+                    payload.collectionId == "pbc_3142635823"))
         );
     }
 
