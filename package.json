@@ -1,6 +1,6 @@
 {
     "version": "0.26.2",
-    "name": "@brunozilio/hobsec",
+    "name": "hobsec",
     "description": "Hobsec JavaScript SDK",
     "author": "Bruno Zilio",
     "license": "MIT",
